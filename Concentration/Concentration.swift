@@ -12,6 +12,8 @@ class Concentration
 {
     private(set) var cards = [Card]()
     
+    private var matchedCardsAmount = 0
+    
     private var indexOfOneAndOnlyFacedUpCard: Int? {
         get {
             var foundIndex: Int?
@@ -33,6 +35,10 @@ class Concentration
         }
     }
     
+    func isFinished() -> Bool {
+        return matchedCardsAmount == cards.count / 2
+    }
+    
     func chooseCard(at index: Int) {
         assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index)): chosen index not in the cards")
         if !cards[index].isMatched {
@@ -40,6 +46,7 @@ class Concentration
                 if cards[matchIndex].identifier == cards[index].identifier {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
+                    matchedCardsAmount += 1
                 }
                 cards[index].isFaceUp = true
             } else {

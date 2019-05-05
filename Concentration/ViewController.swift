@@ -27,13 +27,24 @@ class ViewController: UIViewController
     @IBOutlet private var cardButtons: [UIButton]!
     
     @IBAction private func touchCard(_ sender: UIButton) {
-        flipCount += 1
         if let cardNumber = cardButtons.index(of: sender) {
+            if sender.backgroundColor != #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) {
+                flipCount += 1
+            }
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
         } else {
             print("Chosen card is not in cardButtons!")
         }
+    }
+    
+    @IBAction func startNewGame(_ sender: UIButton) {
+        game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
+        flipCount = 0
+        for item in emoji {
+            emojiChoices.append(emoji.removeValue(forKey: item.key) ?? "?")
+        }
+        updateViewFromModel()
     }
     
     private func updateViewFromModel() {
@@ -47,10 +58,15 @@ class ViewController: UIViewController
                 button.setTitle("", for: UIControl.State.normal)
                 button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
             }
+            if game.isFinished() {
+                button.setTitle("", for: UIControl.State.normal)
+                button.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0)
+            }
+            
         }
     }
     
-    private var emojiChoices = ["🐵", "🐶", "🐋", "👍", "🌲", "🍏", "🚗"]
+    private var emojiChoices = ["🐵", "🐶", "🐋", "👍", "🌲", "🍏", "🚗", "💻"]
 
     private var emoji = [Int:String]()
 
