@@ -58,6 +58,20 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="0KQ-FV-4tg" firstAttribute="baseline" secondItem="JFj-9e-oR1" secondAttribute="baseline" id="534-kM-BRj"/>
+                                            <constraint firstItem="ctP-jM-mge" firstAttribute="firstBaseline" secondItem="JFj-9e-oR1" secondAttribute="firstBaseline" id="8ta-Rd-ot2"/>
+                                            <constraint firstItem="Ofc-eu-Ake" firstAttribute="baseline" secondItem="JFj-9e-oR1" secondAttribute="baseline" id="Ko6-eZ-8Xn"/>
+                                            <constraint firstItem="ctP-jM-mge" firstAttribute="firstBaseline" secondItem="Ofc-eu-Ake" secondAttribute="firstBaseline" id="NSm-6f-qzT"/>
+                                            <constraint firstItem="JFj-9e-oR1" firstAttribute="firstBaseline" secondItem="Ofc-eu-Ake" secondAttribute="firstBaseline" id="ODY-oa-cey"/>
+                                            <constraint firstItem="ctP-jM-mge" firstAttribute="firstBaseline" secondItem="0KQ-FV-4tg" secondAttribute="firstBaseline" id="OQx-RI-HIi"/>
+                                            <constraint firstItem="Ofc-eu-Ake" firstAttribute="baseline" secondItem="ctP-jM-mge" secondAttribute="baseline" id="fvG-kS-VjF"/>
+                                            <constraint firstItem="0KQ-FV-4tg" firstAttribute="baseline" secondItem="Ofc-eu-Ake" secondAttribute="baseline" id="h2a-uk-2ew"/>
+                                            <constraint firstItem="ctP-jM-mge" firstAttribute="baseline" secondItem="JFj-9e-oR1" secondAttribute="baseline" id="nEM-12-U3z"/>
+                                            <constraint firstItem="JFj-9e-oR1" firstAttribute="firstBaseline" secondItem="0KQ-FV-4tg" secondAttribute="firstBaseline" id="vgD-NC-xsx"/>
+                                            <constraint firstItem="0KQ-FV-4tg" firstAttribute="firstBaseline" secondItem="Ofc-eu-Ake" secondAttribute="firstBaseline" id="wJj-tf-jgn"/>
+                                            <constraint firstItem="ctP-jM-mge" firstAttribute="baseline" secondItem="0KQ-FV-4tg" secondAttribute="baseline" id="zHe-qS-rM0"/>
+                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WfN-fj-KA5">
                                         <rect key="frame" x="0.0" y="80" width="343" height="72"/>
@@ -95,6 +109,20 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="TgW-Vw-E5E" firstAttribute="baseline" secondItem="x1j-9m-iJE" secondAttribute="baseline" id="3Sg-fz-wB3"/>
+                                            <constraint firstItem="TgW-Vw-E5E" firstAttribute="firstBaseline" secondItem="x1j-9m-iJE" secondAttribute="firstBaseline" id="9gC-LD-33o"/>
+                                            <constraint firstItem="xjU-92-irs" firstAttribute="firstBaseline" secondItem="szn-6s-gMe" secondAttribute="firstBaseline" id="DG8-dM-eMt"/>
+                                            <constraint firstItem="x1j-9m-iJE" firstAttribute="firstBaseline" secondItem="xjU-92-irs" secondAttribute="firstBaseline" id="E8q-9r-QtD"/>
+                                            <constraint firstItem="szn-6s-gMe" firstAttribute="baseline" secondItem="xjU-92-irs" secondAttribute="baseline" id="FOT-X5-DgD"/>
+                                            <constraint firstItem="szn-6s-gMe" firstAttribute="baseline" secondItem="TgW-Vw-E5E" secondAttribute="baseline" id="Mpo-4W-VhG"/>
+                                            <constraint firstItem="TgW-Vw-E5E" firstAttribute="firstBaseline" secondItem="szn-6s-gMe" secondAttribute="firstBaseline" id="TN3-lQ-L4z"/>
+                                            <constraint firstItem="x1j-9m-iJE" firstAttribute="firstBaseline" secondItem="szn-6s-gMe" secondAttribute="firstBaseline" id="Vdi-7H-AYg"/>
+                                            <constraint firstItem="TgW-Vw-E5E" firstAttribute="baseline" secondItem="xjU-92-irs" secondAttribute="baseline" id="Zzi-gn-Mcm"/>
+                                            <constraint firstItem="TgW-Vw-E5E" firstAttribute="firstBaseline" secondItem="xjU-92-irs" secondAttribute="firstBaseline" id="d1y-zK-tZS"/>
+                                            <constraint firstItem="xjU-92-irs" firstAttribute="baseline" secondItem="x1j-9m-iJE" secondAttribute="baseline" id="fzV-f8-TDZ"/>
+                                            <constraint firstItem="szn-6s-gMe" firstAttribute="baseline" secondItem="x1j-9m-iJE" secondAttribute="baseline" id="zeg-7N-7bi"/>
+                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KPT-lP-hZp">
                                         <rect key="frame" x="0.0" y="160" width="343" height="72"/>
@@ -132,6 +160,20 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="rxA-Mj-gdH" firstAttribute="baseline" secondItem="S1R-HE-r8d" secondAttribute="baseline" id="A4y-l7-wLq"/>
+                                            <constraint firstItem="OS8-vQ-dR9" firstAttribute="firstBaseline" secondItem="S1R-HE-r8d" secondAttribute="firstBaseline" id="B3Y-iA-WPz"/>
+                                            <constraint firstItem="rxA-Mj-gdH" firstAttribute="firstBaseline" secondItem="S1R-HE-r8d" secondAttribute="firstBaseline" id="OaD-ds-ivJ"/>
+                                            <constraint firstItem="S1R-HE-r8d" firstAttribute="baseline" secondItem="tX9-tr-nMk" secondAttribute="baseline" id="QTc-Sf-BiC"/>
+                                            <constraint firstItem="rxA-Mj-gdH" firstAttribute="firstBaseline" secondItem="OS8-vQ-dR9" secondAttribute="firstBaseline" id="Qgb-hf-URT"/>
+                                            <constraint firstItem="rxA-Mj-gdH" firstAttribute="baseline" secondItem="OS8-vQ-dR9" secondAttribute="baseline" id="UuJ-Ca-uTB"/>
+                                            <constraint firstItem="tX9-tr-nMk" firstAttribute="baseline" secondItem="rxA-Mj-gdH" secondAttribute="baseline" id="XgD-T3-BGO"/>
+                                            <constraint firstItem="S1R-HE-r8d" firstAttribute="firstBaseline" secondItem="tX9-tr-nMk" secondAttribute="firstBaseline" id="cHH-sK-zxs"/>
+                                            <constraint firstItem="tX9-tr-nMk" firstAttribute="baseline" secondItem="OS8-vQ-dR9" secondAttribute="baseline" id="cxN-Dm-la6"/>
+                                            <constraint firstItem="S1R-HE-r8d" firstAttribute="baseline" secondItem="OS8-vQ-dR9" secondAttribute="baseline" id="dHW-Xg-DQ6"/>
+                                            <constraint firstItem="tX9-tr-nMk" firstAttribute="firstBaseline" secondItem="OS8-vQ-dR9" secondAttribute="firstBaseline" id="jpH-LO-UYj"/>
+                                            <constraint firstItem="rxA-Mj-gdH" firstAttribute="firstBaseline" secondItem="tX9-tr-nMk" secondAttribute="firstBaseline" id="kFl-a2-5P2"/>
+                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xyu-YO-rrt">
                                         <rect key="frame" x="0.0" y="240" width="343" height="72"/>
@@ -169,18 +211,35 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="fTQ-VH-fIH" firstAttribute="baseline" secondItem="Tde-LP-7Ia" secondAttribute="baseline" id="8WA-4e-zXn"/>
+                                            <constraint firstItem="h5c-sk-xKK" firstAttribute="firstBaseline" secondItem="6Dc-41-plB" secondAttribute="firstBaseline" id="Bk8-hP-5MO"/>
+                                            <constraint firstItem="h5c-sk-xKK" firstAttribute="firstBaseline" secondItem="Tde-LP-7Ia" secondAttribute="firstBaseline" id="CiA-az-ZE0"/>
+                                            <constraint firstItem="fTQ-VH-fIH" firstAttribute="baseline" secondItem="h5c-sk-xKK" secondAttribute="baseline" id="Mes-Bc-isn"/>
+                                            <constraint firstItem="fTQ-VH-fIH" firstAttribute="firstBaseline" secondItem="Tde-LP-7Ia" secondAttribute="firstBaseline" id="Swr-pK-g2D"/>
+                                            <constraint firstItem="6Dc-41-plB" firstAttribute="baseline" secondItem="Tde-LP-7Ia" secondAttribute="baseline" id="TQG-7N-Lqe"/>
+                                            <constraint firstItem="6Dc-41-plB" firstAttribute="baseline" secondItem="h5c-sk-xKK" secondAttribute="baseline" id="fl7-cI-jwe"/>
+                                            <constraint firstItem="6Dc-41-plB" firstAttribute="firstBaseline" secondItem="fTQ-VH-fIH" secondAttribute="firstBaseline" id="jHB-q7-JWU"/>
+                                            <constraint firstItem="6Dc-41-plB" firstAttribute="baseline" secondItem="fTQ-VH-fIH" secondAttribute="baseline" id="lz3-mQ-fdh"/>
+                                            <constraint firstItem="Tde-LP-7Ia" firstAttribute="firstBaseline" secondItem="6Dc-41-plB" secondAttribute="firstBaseline" id="oqt-n6-HDE"/>
+                                            <constraint firstItem="h5c-sk-xKK" firstAttribute="baseline" secondItem="Tde-LP-7Ia" secondAttribute="baseline" id="t9I-Zo-QwK"/>
+                                            <constraint firstItem="h5c-sk-xKK" firstAttribute="firstBaseline" secondItem="fTQ-VH-fIH" secondAttribute="firstBaseline" id="tAW-FD-NK8"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHx-Tz-k13">
-                                <rect key="frame" x="125.66666666666666" y="730" width="123.66666666666666" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <rect key="frame" x="219" y="689" width="140" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6K-kE-5tr">
-                                <rect key="frame" x="16" y="680" width="343" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6K-kE-5tr">
+                                <rect key="frame" x="117" y="738" width="140" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="xUq-vi-mTV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="New game">
                                     <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -188,24 +247,37 @@
                                     <action selector="startNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xDB-Ft-tFT"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4d-kB-FPU">
+                                <rect key="frame" x="34" y="689" width="140" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="3Df-Jr-ARD"/>
+                                    <constraint firstAttribute="height" constant="40" id="Tgh-TU-s6e"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstItem="aHx-Tz-k13" firstAttribute="top" secondItem="f6K-kE-5tr" secondAttribute="bottom" constant="8" symbolic="YES" id="2cy-Su-8Ir"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="URd-Yj-QW3" secondAttribute="trailing" constant="16" id="5zb-Wa-Cux"/>
-                            <constraint firstItem="aHx-Tz-k13" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="80v-dR-LG2"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aHx-Tz-k13" secondAttribute="bottom" id="IoV-FT-Loq"/>
-                            <constraint firstItem="aHx-Tz-k13" firstAttribute="top" relation="greaterThanOrEqual" secondItem="URd-Yj-QW3" secondAttribute="bottom" constant="8" symbolic="YES" id="KzY-SO-bL2"/>
-                            <constraint firstItem="URd-Yj-QW3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="NYt-1o-WYX"/>
-                            <constraint firstItem="URd-Yj-QW3" firstAttribute="leading" secondItem="f6K-kE-5tr" secondAttribute="leading" id="QWy-Ij-t71"/>
-                            <constraint firstItem="URd-Yj-QW3" firstAttribute="trailing" secondItem="f6K-kE-5tr" secondAttribute="trailing" id="T4A-vB-rcO"/>
-                            <constraint firstItem="f6K-kE-5tr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hKD-z9-CT0"/>
-                            <constraint firstItem="URd-Yj-QW3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="y9M-E6-AKV"/>
+                            <constraint firstItem="f6K-kE-5tr" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="B2F-tb-ymz"/>
+                            <constraint firstItem="f6K-kE-5tr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="117" id="DuQ-9B-XG3"/>
+                            <constraint firstItem="b4d-kB-FPU" firstAttribute="firstBaseline" secondItem="aHx-Tz-k13" secondAttribute="firstBaseline" id="Ora-Fy-ldc"/>
+                            <constraint firstItem="URd-Yj-QW3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="UO7-OV-c1S"/>
+                            <constraint firstItem="b4d-kB-FPU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="34" id="ffs-JH-M4c"/>
+                            <constraint firstItem="URd-Yj-QW3" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="gcK-IY-Uaj"/>
+                            <constraint firstItem="f6K-kE-5tr" firstAttribute="top" secondItem="aHx-Tz-k13" secondAttribute="bottom" constant="9" id="gj7-45-sMA"/>
+                            <constraint firstItem="aHx-Tz-k13" firstAttribute="leading" secondItem="b4d-kB-FPU" secondAttribute="trailing" constant="45" id="jnc-Ya-ZMj"/>
+                            <constraint firstItem="URd-Yj-QW3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="mA5-IL-ddl"/>
+                            <constraint firstItem="URd-Yj-QW3" firstAttribute="centerX" secondItem="f6K-kE-5tr" secondAttribute="centerX" id="pvx-6c-czC"/>
+                            <constraint firstItem="URd-Yj-QW3" firstAttribute="trailing" secondItem="aHx-Tz-k13" secondAttribute="trailing" id="uvT-L4-XQo"/>
+                            <constraint firstItem="b4d-kB-FPU" firstAttribute="baseline" secondItem="aHx-Tz-k13" secondAttribute="baseline" id="vli-mY-QMh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="flipCountLabel" destination="aHx-Tz-k13" id="uHZ-ma-H6J"/>
+                        <outlet property="scoreLabel" destination="b4d-kB-FPU" id="7SP-VB-KG1"/>
                         <outletCollection property="cardButtons" destination="Ofc-eu-Ake" collectionClass="NSMutableArray" id="xFG-xg-tHp"/>
                         <outletCollection property="cardButtons" destination="0KQ-FV-4tg" collectionClass="NSMutableArray" id="cZT-Jj-Fwk"/>
                         <outletCollection property="cardButtons" destination="ctP-jM-mge" collectionClass="NSMutableArray" id="B91-LC-ICg"/>

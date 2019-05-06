@@ -12,7 +12,13 @@ class Concentration
 {
     private(set) var cards = [Card]()
     
+    private(set) var flipCount = 0
+    
+    private(set) var score = 0
+    
     private var matchedCardsAmount = 0
+    
+    private var flippedCards: Set<Int> = []
     
     private var indexOfOneAndOnlyFacedUpCard: Int? {
         get {
@@ -41,17 +47,32 @@ class Concentration
     
     func chooseCard(at index: Int) {
         assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index)): chosen index not in the cards")
-        if !cards[index].isMatched {
-            if let matchIndex = indexOfOneAndOnlyFacedUpCard, matchIndex != index {
-                if cards[matchIndex].identifier == cards[index].identifier {
-                    cards[matchIndex].isMatched = true
-                    cards[index].isMatched = true
-                    matchedCardsAmount += 1
-                }
-                cards[index].isFaceUp = true
+        
+        if cards[index].isMatched {
+            return
+        }
+        
+        flipCount += 1
+        
+        if let matchIndex = indexOfOneAndOnlyFacedUpCard, matchIndex != index {
+            if cards[matchIndex].identifier == cards[index].identifier {
+                cards[matchIndex].isMatched = true
+                cards[index].isMatched = true
+                score += 2
+                matchedCardsAmount += 1
             } else {
-                indexOfOneAndOnlyFacedUpCard = index
+                if flippedCards.contains(index) {
+                    score -= 1
+                }
+                if flippedCards.contains(matchIndex) {
+                    score -= 1
+                }
             }
+            flippedCards.insert(index)
+            flippedCards.insert(matchIndex)
+            cards[index].isFaceUp = true
+        } else {
+            indexOfOneAndOnlyFacedUpCard = index
         }
     }
     
@@ -59,7 +80,8 @@ class Concentration
         assert(numberOfPairsOfCards > 0, "Concentration.init(numberOfPairsOfCards: \(numberOfPairsOfCards )): you must have at least one pair of cards")
         for _ in 1...numberOfPairsOfCards {
             let card = Card()
-            cards += [card, card]
+            cards.append(card)
+            cards.append(card)
         }
         cards.shuffle()
     }

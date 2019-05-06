@@ -15,22 +15,15 @@ class ViewController: UIViewController
     var numberOfPairsOfCards: Int {
         return (cardButtons.count + 1) / 2
     }
-    
-    private(set) var flipCount = 0 {
-        didSet {
-            flipCountLabel.text = "Flips: \(flipCount)"
-        }
-    }
 
     @IBOutlet private weak var flipCountLabel: UILabel!
+    
+    @IBOutlet private weak var scoreLabel: UILabel!
     
     @IBOutlet private var cardButtons: [UIButton]!
     
     @IBAction private func touchCard(_ sender: UIButton) {
         if let cardNumber = cardButtons.index(of: sender) {
-            if sender.backgroundColor != #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) {
-                flipCount += 1
-            }
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
         } else {
@@ -40,7 +33,6 @@ class ViewController: UIViewController
     
     @IBAction func startNewGame(_ sender: UIButton) {
         game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
-        flipCount = 0
         for item in emoji {
             emojiChoices.append(emoji.removeValue(forKey: item.key) ?? "?")
         }
@@ -48,6 +40,9 @@ class ViewController: UIViewController
     }
     
     private func updateViewFromModel() {
+        flipCountLabel.text = "Flips: \(game.flipCount)"
+        scoreLabel.text = "Score: \(game.score)"
+        
         for index in cardButtons.indices {
             let button = cardButtons[index]
             let card = game.cards[index]
@@ -66,7 +61,16 @@ class ViewController: UIViewController
         }
     }
     
-    private var emojiChoices = ["🐵", "🐶", "🐋", "👍", "🌲", "🍏", "🚗", "💻"]
+    private var emojiChoices = ["🙈", "🙉", "🙊", "💥", "💦", "💨",
+                                "💫", "🐵", "🐒", "🦍", "🐶", "🐕",
+                                "🐩", "🐺", "🦊", "🐱", "🐈", "🦁",
+                                "🐯", "🐅", "🐆", "🐴", "🐎", "🦄",
+                                "🦓", "🐮", "🐂", "🐃", "🐄", "🐷",
+                                "🐖", "🐗", "🐽", "🐏", "🐑", "🐐",
+                                "🐪", "🐫", "🦒", "🐘", "🦏", "🐭",
+                                "🐁", "🐀", "🐹", "🐰", "🐇", "🐿",
+                                "🦔", "🦇", "🐻", "🐨", "🐼", "🐾",
+                                "🦃", "🐔", "🐓", "🐣", "🐤", "🐥"]
 
     private var emoji = [Int:String]()
 
