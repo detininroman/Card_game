@@ -11,11 +11,13 @@ import UIKit
 class ViewController: UIViewController
 {
     private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
+    private lazy var theme = themes[Int(arc4random_uniform(UInt32(themes.count)))]
     
     var numberOfPairsOfCards: Int {
         return (cardButtons.count + 1) / 2
     }
-
+    
+    
     @IBOutlet private weak var flipCountLabel: UILabel!
     
     @IBOutlet private weak var scoreLabel: UILabel!
@@ -32,10 +34,13 @@ class ViewController: UIViewController
     }
     
     @IBAction func startNewGame(_ sender: UIButton) {
-        game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
         for item in emoji {
-            emojiChoices.append(emoji.removeValue(forKey: item.key) ?? "?")
+            theme.emojis.append(emoji.removeValue(forKey: item.key) ?? "?")
         }
+        
+        game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
+        theme = themes[Int(arc4random_uniform(UInt32(themes.count)))]
+        
         updateViewFromModel()
     }
     
@@ -60,26 +65,43 @@ class ViewController: UIViewController
             
         }
     }
-    
-    private var emojiChoices = ["🙈", "🙉", "🙊", "💥", "💦", "💨",
-                                "💫", "🐵", "🐒", "🦍", "🐶", "🐕",
-                                "🐩", "🐺", "🦊", "🐱", "🐈", "🦁",
-                                "🐯", "🐅", "🐆", "🐴", "🐎", "🦄",
-                                "🦓", "🐮", "🐂", "🐃", "🐄", "🐷",
-                                "🐖", "🐗", "🐽", "🐏", "🐑", "🐐",
-                                "🐪", "🐫", "🦒", "🐘", "🦏", "🐭",
-                                "🐁", "🐀", "🐹", "🐰", "🐇", "🐿",
-                                "🦔", "🦇", "🐻", "🐨", "🐼", "🐾",
-                                "🦃", "🐔", "🐓", "🐣", "🐤", "🐥"]
 
     private var emoji = [Int:String]()
 
     private func emoji(for card: Card) -> String {
-        if emoji[card.identifier] == nil, emojiChoices.count  > 0 {
-            emoji[card.identifier] = emojiChoices.remove(at: emojiChoices.count.arc4random)
+        if emoji[card.identifier] == nil, theme.emojis.count  > 0 {
+            emoji[card.identifier] = theme.emojis.remove(at: theme.emojis.count.arc4random)
         }
         return emoji[card.identifier] ?? "?"
     }
+    
+    struct Theme {
+        var name: String
+        var emojis: [String]
+    }
+    
+    private var themes: [Theme] = [
+        Theme(name: "Sport",
+              emojis: ["⚽", "🏀", "⚾", "🥎", "🎾", "🏐",
+                       "🎱", "🏓", "🏒", "🥅", "⛳", "🥊",
+                       "🥋", "🛹", "⛸", "🤽‍♂️", "🚣", "🚴"]),
+        Theme(name: "Animals",
+              emojis: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊",
+                       "🐻", "🐼", "🐨", "🐯", "🦁", "🐮",
+                       "🐷", "🐸", "🐵", "🐔", "🐧", "🐦"]),
+        Theme(name: "Food",
+              emojis: ["🍎", "🍐", "🍊", "🍋", "🍌", "🍉",
+                       "🍇", "🍓", "🍒", "🍑", "🥭", "🍍",
+                       "🥥", "🥝", "🍅", "🍆", "🥒", "🌶"]),
+        Theme(name: "Transport",
+              emojis: ["🚗", "🚕", "🚙", "🚌", "🏎", "🚓",
+                       "🚒", "🚐", "🚚", "🚜", "🛴", "🚲",
+                       "🛵", "🏍", "🚔", "🚖", "🚄", "🛩"]),
+        Theme(name: "Objects",
+              emojis: ["⌚", "📱", "💻", "💿", "📞", "📺",
+                       "🎙", "🧭", "⏰", "💵", "💳", "💎",
+                       "🔨", "🔧", "💊", "🔭", "📏", "🔓"])
+        ]
 }
 
 extension Int {
