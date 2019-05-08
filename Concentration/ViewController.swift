@@ -17,7 +17,6 @@ class ViewController: UIViewController
         return (cardButtons.count + 1) / 2
     }
     
-    
     @IBOutlet private weak var flipCountLabel: UILabel!
     
     @IBOutlet private weak var scoreLabel: UILabel!
@@ -25,7 +24,7 @@ class ViewController: UIViewController
     @IBOutlet private var cardButtons: [UIButton]!
     
     @IBAction private func touchCard(_ sender: UIButton) {
-        if let cardNumber = cardButtons.index(of: sender) {
+        if let cardNumber = cardButtons.firstIndex(of: sender) {
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
         } else {
