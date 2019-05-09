@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Concentration
-{
+struct Concentration {
+    
     private(set) var cards = [Card]()
     
     private(set) var flipCount = 0
@@ -22,17 +22,7 @@ struct Concentration
     
     private var indexOfOneAndOnlyFacedUpCard: Int? {
         get {
-            var foundIndex: Int?
-            for index in cards.indices {
-                if cards[index].isFaceUp {
-                    if foundIndex == nil {
-                        foundIndex = index
-                    } else {
-                        return nil
-                    }
-                }
-            }
-            return foundIndex
+            return cards.indices.filter { cards[$0].isFaceUp }.oneAndOnly
         }
         set {
             for index in cards.indices  {
@@ -55,7 +45,7 @@ struct Concentration
         flipCount += 1
         
         if let matchIndex = indexOfOneAndOnlyFacedUpCard, matchIndex != index {
-            if cards[matchIndex].identifier == cards[index].identifier {
+            if cards[matchIndex] == cards[index] {
                 cards[matchIndex].isMatched = true
                 cards[index].isMatched = true
                 score += 2
@@ -84,5 +74,11 @@ struct Concentration
             cards.append(card)
         }
         cards.shuffle()
+    }
+}
+
+extension Collection {
+    var oneAndOnly: Element? {
+        return count == 1 ? first : nil
     }
 }

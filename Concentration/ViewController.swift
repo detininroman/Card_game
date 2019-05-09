@@ -8,18 +8,26 @@
 
 import UIKit
 
-class ViewController: UIViewController
-{
+class ViewController: UIViewController {
+    
     private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
-    private lazy var theme = themes[Int(arc4random_uniform(UInt32(themes.count)))]
+    private lazy var theme = themes[themes.count.arc4random]
     
     var numberOfPairsOfCards: Int {
         return (cardButtons.count + 1) / 2
     }
     
-    @IBOutlet private weak var flipCountLabel: UILabel!
+    @IBOutlet private weak var flipCountLabel: UILabel! {
+        didSet {
+            updateFlipCountLabel()
+        }
+    }
     
-    @IBOutlet private weak var scoreLabel: UILabel!
+    @IBOutlet private weak var scoreLabel: UILabel! {
+        didSet {
+            updateScoreLabel()
+        }
+    }
     
     @IBOutlet private var cardButtons: [UIButton]!
     
@@ -32,20 +40,21 @@ class ViewController: UIViewController
         }
     }
     
-    @IBAction func startNewGame(_ sender: UIButton) {
+    @IBAction private func startNewGame(_ sender: UIButton) {
         for item in emoji {
             theme.emojis.append(emoji.removeValue(forKey: item.key) ?? "?")
         }
         
         game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
-        theme = themes[Int(arc4random_uniform(UInt32(themes.count)))]
+        theme = themes[themes.count.arc4random]
         
         updateViewFromModel()
     }
     
     private func updateViewFromModel() {
-        flipCountLabel.text = "Flips: \(game.flipCount)"
-        scoreLabel.text = "Score: \(game.score)"
+        
+        updateFlipCountLabel()
+        updateScoreLabel()
         
         for index in cardButtons.indices {
             let button = cardButtons[index]
@@ -64,42 +73,46 @@ class ViewController: UIViewController
             
         }
     }
+    
+    private let labelAttributes: [NSAttributedString.Key: Any] = [
+        .strokeWidth : -3.0,
+        .strokeColor : #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
+    ]
+    
+    private func updateFlipCountLabel() {
+        flipCountLabel.attributedText = NSAttributedString(string: "Flips: \(game.flipCount)", attributes: labelAttributes)
+    }
+    
+    private func updateScoreLabel() {
+        scoreLabel.attributedText = NSAttributedString(string: "Score: \(game.score)", attributes: labelAttributes)
+    }
 
-    private var emoji = [Int:String]()
+    private var emoji = [Card:String]()
 
     private func emoji(for card: Card) -> String {
-        if emoji[card.identifier] == nil, theme.emojis.count  > 0 {
-            emoji[card.identifier] = theme.emojis.remove(at: theme.emojis.count.arc4random)
+        if emoji[card] == nil, theme.emojis.count  > 0 {
+            let randomStringIndex = theme.emojis.index(theme.emojis.startIndex, offsetBy: theme.emojis.count.arc4random)
+            emoji[card] = String(theme.emojis.remove(at: randomStringIndex))
         }
-        return emoji[card.identifier] ?? "?"
+        return emoji[card] ?? "?"
     }
     
     struct Theme {
         var name: String
-        var emojis: [String]
+        var emojis: String
     }
     
     private var themes: [Theme] = [
         Theme(name: "Sport",
-              emojis: ["⚽", "🏀", "⚾", "🥎", "🎾", "🏐",
-                       "🎱", "🏓", "🏒", "🥅", "⛳", "🥊",
-                       "🥋", "🛹", "⛸", "🤽‍♂️", "🚣", "🚴"]),
+              emojis: "⚽🏀⚾🥎🎾🏐🎱🏓🏒🥅⛳🥊🥋🛹⛸🤽‍♂️🚣🚴"),
         Theme(name: "Animals",
-              emojis: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊",
-                       "🐻", "🐼", "🐨", "🐯", "🦁", "🐮",
-                       "🐷", "🐸", "🐵", "🐔", "🐧", "🐦"]),
+              emojis: "🐶🐱🐭🐹🐰🦊🐻🐼🐨🐯🦁🐮🐷🐸🐵🐔🐧🐦"),
         Theme(name: "Food",
-              emojis: ["🍎", "🍐", "🍊", "🍋", "🍌", "🍉",
-                       "🍇", "🍓", "🍒", "🍑", "🥭", "🍍",
-                       "🥥", "🥝", "🍅", "🍆", "🥒", "🌶"]),
+              emojis: "🍎🍐🍊🍋🍌🍉🍇🍓🍒🍑🥭🍍🥥🥝🍅🍆🥒🌶"),
         Theme(name: "Transport",
-              emojis: ["🚗", "🚕", "🚙", "🚌", "🏎", "🚓",
-                       "🚒", "🚐", "🚚", "🚜", "🛴", "🚲",
-                       "🛵", "🏍", "🚔", "🚖", "🚄", "🛩"]),
+              emojis: "🚗🚕🚙🚌🏎🚓🚒🚐🚚🚜🛴🚲🛵🏍🚔🚖🚄🛩"),
         Theme(name: "Objects",
-              emojis: ["⌚", "📱", "💻", "💿", "📞", "📺",
-                       "🎙", "🧭", "⏰", "💵", "💳", "💎",
-                       "🔨", "🔧", "💊", "🔭", "📏", "🔓"])
+              emojis: "⌚📱💻💿📞📺🎙🧭⏰💵💳💎🔨🔧💊🔭📏🔓")
         ]
 }
 
