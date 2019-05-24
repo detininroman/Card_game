@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ConcentrationViewController: UIViewController {
     
     private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
-    private lazy var theme = themes[themes.count.arc4random]
+    lazy var theme: Theme = defaultTheme
     
     var numberOfPairsOfCards: Int {
         return (cardButtons.count + 1) / 2
@@ -40,15 +40,22 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction private func startNewGame(_ sender: UIButton) {
-        for item in emoji {
-            theme.emojis.append(emoji.removeValue(forKey: item.key) ?? "?")
+    func changeTheme(on newThemeName: String)  {
+        
+        if let index = themes.firstIndex(where: { $0.name == newThemeName }) {
+            
+            for item in emoji {
+                theme.emojis.append(emoji.removeValue(forKey: item.key) ?? "?")
+            }
+            theme = themes[index]
         }
+        updateViewFromModel()
+    }
+    
+    @IBAction private func startNewGame(_ sender: UIButton) {
         
         game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
-        theme = themes[themes.count.arc4random]
-        
-        updateViewFromModel()
+        changeTheme(on: themes[themes.count.arc4random].name)
     }
     
     private func updateViewFromModel() {
@@ -56,15 +63,19 @@ class ViewController: UIViewController {
         updateFlipCountLabel()
         updateScoreLabel()
         
+        if cardButtons == nil {
+            return
+        }
+        
         for index in cardButtons.indices {
             let button = cardButtons[index]
             let card = game.cards[index]
             if card.isFaceUp {
                 button.setTitle(emoji(for: card), for: UIControl.State.normal)
-                button.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+                button.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             } else {
                 button.setTitle("", for: UIControl.State.normal)
-                button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
+                button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : #colorLiteral(red: 0.4219691157, green: 0.639721334, blue: 0.8902803063, alpha: 1)
             }
             if game.isFinished() {
                 button.setTitle("", for: UIControl.State.normal)
@@ -76,14 +87,20 @@ class ViewController: UIViewController {
     
     private let labelAttributes: [NSAttributedString.Key: Any] = [
         .strokeWidth : -3.0,
-        .strokeColor : #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
+        .strokeColor : #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     ]
     
     private func updateFlipCountLabel() {
+        if flipCountLabel == nil {
+            return
+        }
         flipCountLabel.attributedText = NSAttributedString(string: "Flips: \(game.flipCount)", attributes: labelAttributes)
     }
     
     private func updateScoreLabel() {
+        if scoreLabel == nil {
+            return
+        }
         scoreLabel.attributedText = NSAttributedString(string: "Score: \(game.score)", attributes: labelAttributes)
     }
 
@@ -101,7 +118,9 @@ class ViewController: UIViewController {
         var name: String
         var emojis: String
     }
-    
+
+    private var defaultTheme = Theme(name: "Default", emojis: "")
+
     private var themes: [Theme] = [
         Theme(name: "Sport",
               emojis: "⚽🏀⚾🥎🎾🏐🎱🏓🏒🥅⛳🥊🥋🛹⛸🤽‍♂️🚣🚴"),
